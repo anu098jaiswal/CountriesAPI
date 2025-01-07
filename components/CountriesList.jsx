@@ -2,9 +2,13 @@ import React from 'react'
 import countriesData from '../countriesData'
 import Countrycard from './Countrycard'
 
-export default function CountriesList() {
-  return (<div classname="countries-container">
-    {countriesData.map((country) =>{
+export default function CountriesList({searchText}) {
+  return (
+    <>
+   
+  <div classname="countries-container">
+    { countriesData.filter((country)=> country.name.common.toLowerCase().includes(searchText))
+      .map((country) =>{
       return(<Countrycard key ={country.name.common}
             name={country.name.common}
             flag={country.flags.svg}
@@ -15,6 +19,7 @@ export default function CountriesList() {
   )
 })}
   </div>
+  </>
   )
 }
 

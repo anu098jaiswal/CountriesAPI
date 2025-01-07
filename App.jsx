@@ -1,3 +1,4 @@
+import { useState } from "react"
 import Header from "./components/Header"
 import './App.css'
 import Searchbar from "./components/Searchbar"
@@ -7,7 +8,7 @@ import CountriesList from "./components/CountriesList"
 
 const App = () => {
 
-    const[searchText, setSearchText]=useState("")
+    const[searchText, setSearchText]=useState(" ")
     return(
         <>
         <Header/>
@@ -17,7 +18,7 @@ const App = () => {
             <SelectMenu/>
             </div>
        
-        <CountriesList/>
+        <CountriesList searchText={searchText} />
         </main>
 
         </>
